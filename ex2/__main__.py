@@ -72,10 +72,11 @@ def q2():
 From the graphs we can see that the noise in the derivatives is match greater and grows much faster than that of the
 function itself. We also see that the noise in the splines grow much faster than that of the raw derivative.""")
 
+    x2 = np.linspace(0.5, 10, 1000)
     fig, axes = plt.subplots(2, 2, figsize=(10, 8))
     axes[0, 0].plot(x, y, label="clean")
+    axes[0, 0].plot(x2, cubic_spline(x2), label="spline")
     axes[0, 0].plot(x, y + 0.1 * noise, label="noisy")
-    axes[0, 0].plot(x, cubic_spline(x), label="spline")
     axes[0, 0].set_title(r"$\frac{\sin(x - x^2)}{x}$ with $\lambda=0.1$")
     axes[0, 0].legend()
 
