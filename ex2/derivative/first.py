@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Callable, Iterable
 
 import numpy as np
 from numpy.typing import NDArray
@@ -78,7 +78,11 @@ def function_center_derivative(func: Callable[[NDArray], NDArray], points: NDArr
     :return: An array of size len(points) with the derivatives at these points
     """
     if not h:  # Estimate optimal step size
-        test_f = func(points[:1])
+        if isinstance(points, np.ndarray):
+            point = points[0]
+        else:
+            point = points
+        test_f = func(point)
         h = np.power(np.finfo(test_f.dtype).resolution, 1 / 3, dtype=test_f.dtype)
 
     fs = func(points + h)

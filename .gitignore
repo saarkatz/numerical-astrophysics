@@ -1,0 +1,10 @@
+*.pptx
+*.docx
+*.pdf
+*.egg-info
+*.rar
+*.png
+
+.idea/
+build/
+**/__pycache__

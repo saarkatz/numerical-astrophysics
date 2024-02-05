@@ -7,7 +7,7 @@ from ex2.integral.trapezoid import adaptive_trapezoid_generator
 
 
 def romberg_generator(func: Callable[[NDArray], NDArray], start, end):
-    """generate the romberg integral values in successive
+    """generate the romberg integral values in successive order
     The values first increase in the index m from 0 to n and than in index n to n+1 and back to m, starting from (0,0)
 
     :param func: The integrand
@@ -50,7 +50,7 @@ def romberg_integral(func: Callable[[NDArray], NDArray], start, end, resolution,
     :param end: The end of the integration interval
     :param resolution: The requested resolution of the result
     :param limit: A limit on the number of iterations - the value of n
-    :return: The value of the integral and the estimated error of the calculation
+    :return: The value of the integral, the estimated error of the calculation, the final step size and the iteration count
     """
     func_dtype = func([start]).dtype
     start, end = func_dtype.type(start), func_dtype.type(end)
