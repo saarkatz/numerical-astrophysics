@@ -97,6 +97,7 @@ def q1():
 
 
 def q23():
+    print("This part takes a bit of time...")
     ns = np.arange(64, 1024 + 1, 8)
     cfl = 0.5
     upwind = []
@@ -164,5 +165,5 @@ def q23():
 
 
 if __name__ == '__main__':
-    # q1()
+    q1()
     q23()
